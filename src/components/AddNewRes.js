@@ -62,27 +62,11 @@ class AddNewProject extends Component {
 
                 <form onSubmit={this.createNewRestaurant}>
 
-                    {/* <label>Restaurant</label>
-                    <input value={this.state.nameInput} id="nameInput" onChange={this.updateInput} />
-
-                    <label>Description</label>
-                    <input value={this.state.descriptionInput} id="descriptionInput" onChange={this.updateInput} />
-
                     
-                    <button>Save</button> */}
 
                     <div className="ui form">
 
-                        {/* <label>Restaurant</label>
-
-                        <div className="eight wide field">
-                        <input value={this.state.nameInput} id="nameInput" onChange={this.updateInput} />
-                        </div>
-
-                        <div className="eight wide field">
-                        <input value={this.state.foodType} id="foodType" onChange={this.updateInput} />
-                        </div> */}
-
+                        
                         <div className="field">
                             <label>Restaurant</label>
                             <div className="fields">
