@@ -15,22 +15,11 @@ handleChange = (e) =>{
 
 handleFormSubmit = (e) =>{
     e.preventDefault();
-    // you could just do axios.post('http://localhost:5000/api/signup, {username: this.state.userNameInput, password: this.state.passWordInput}, {withCredentials: true})
     this.userService.login(this.state.usernameInput, this.state.passwordInput)
     .then((userFromDB)=>{
-        // here we wait for the API to give us the user object back after logging in
         this.setState({usernameInput: '', passwordInput: ''})
-        
         console.log(userFromDB)
-        // then we pass that user object back to app component
         this.props.logTheUserIntoAppComponent(userFromDB)
-        // here, we are getting the user object from the DB
-        // and we're setting AppComponent.state.loggedinuser equal to it
-
-
-        //this.props.history.push('/project-index');
-        // then we redirect
-        
 
 
     })

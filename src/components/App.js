@@ -9,6 +9,7 @@ import Login from './Login';
 import Error from './Error';
 import SignUp from './SignUp';
 import Nav from './Nav'
+import RestaurantList from './restaurantList';
 
 
 
@@ -39,7 +40,10 @@ class App extends React.Component {
                             render={() => <Login {...this.props }logTheUserIntoAppComponent={this.logTheUserIntoAppComponent} />} 
                              />                            
                             <Route path="/signup" component={SignUp} />
+                            <Route path="/restaurants" render={(props) => <RestaurantList {...props} currentUser={this.state.user} /> } />
+                            {/* <Route path="/restaurants/details/:id" component = {oneRestaurant} /> }  */}
                             <Route component={Error} />
+
                         </Switch>
                     </div>
                     
