@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
 import UserService from '../service/UserService';
-import {Link} from 'react-router-dom'
 
 class Login extends Component {
   state = { usernameInput: '', passwordInput: '' };
@@ -43,7 +41,7 @@ handleFormSubmit = (e) =>{
 
 render(){
   return(
-    <div>
+    <div className="log-in">
         <form className="ui form" onSubmit={this.handleFormSubmit}>
         <div className="field">
           <label>Username</label>
@@ -57,7 +55,8 @@ render(){
 
         <div class="ui form success">
        
-        <button className="ui button" type="submit">Login</button>
+        <button class="positive ui button">Login</button>
+
         </div>
 
       </form>
