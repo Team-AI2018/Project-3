@@ -29,6 +29,10 @@ handleFormSubmit = (e) =>{
 render(){
   return(
     <div className="log-in">
+        <img className="toast-img" src="../brown.jpg"/>
+
+        <div className="log-in-form">
+
         <form className="ui form" onSubmit={this.handleFormSubmit}>
         <div className="field">
           <label>Username</label>
@@ -38,8 +42,7 @@ render(){
           <label>Password</label>
           <input type="password" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)}/>
         </div>
-       
-
+    
         <div class="ui form success">
        
         <button class="positive ui button">Login</button>
@@ -47,6 +50,13 @@ render(){
         </div>
 
       </form>
+
+      </div>
+
+      <img src="../brown.jpg"/>
+      <img src="tomato.jpeg"/>
+      <img src="food.jpeg"/>
+      <img src="food.jpeg"/>
 
 </div>
   )

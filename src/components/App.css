@@ -15,9 +15,9 @@ body{
     align-items: center;
     padding:15px;
     font-size: 20px;
-    border: 1px solid grey ;
     border-radius: 5px;
     margin-bottom:  50px;
+    background-color: #16ab39;
 }
 
 .add-new{
@@ -26,10 +26,23 @@ body{
 
 }
 
+
 .log-in{
-    width:60%;
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+
 }
 
+.log-in-form{
+    padding:50px;
+    grid-row: 1/2;
+}
+
+.log-in img{
+    border-radius: 5px;
+}
 .pen-pic{
     width: 30px;
   }

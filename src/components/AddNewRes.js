@@ -56,6 +56,7 @@ class AddNewProject extends Component {
                 <h1>Add New Restaurant</h1>
 
                 <form onSubmit={this.createNewRestaurant}>
+
                     <div className="ui form">
 
                         <div className="field">
