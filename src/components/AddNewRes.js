@@ -17,8 +17,6 @@ class AddNewProject extends Component {
 
     updateInput = (e) => {
         this.setState({[e.target.id]: e.target.value })
-        // this.state[e.target.id] = e.target.value
-        // fancy way of saying this
     }
 
     createNewRestaurant = (e) => {
@@ -31,20 +29,17 @@ class AddNewProject extends Component {
         const rating = this.state.rating;
         const review = this.state.review;
         const owner = this.state.owner;
-        // grab the values from the DOM
 
-        // gotta send withCredentials: true as a header because
-        // the route we are posting to uses req.user which is by default protected by express
+
         Axios.post("http://localhost:5000/api/restaurants/add-new",
          {name: newName, description: newDescription, location: newLocation, foodType: newfoodType, avgPrice: avgPrice,
          rating: rating, review: review, owner : owner},
          {withCredentials: true})
          .then((responeFromOurAPI)=>{
-            console.log('success', responeFromOurAPI)
-
+            console.log('history before', this.props.history)
             this.props.addAllRestaurants(responeFromOurAPI);
-            // after we send the axios request, we call the function in the parent component
-            // to make that component go and get all the project again so now it should have the new project we just added
+            this.props.history.push('/restaurants');
+            console.log('history after', this.props.history)
 
 
          })
@@ -62,11 +57,8 @@ class AddNewProject extends Component {
 
                 <form onSubmit={this.createNewRestaurant}>
 
-                    
-
                     <div className="ui form">
 
-                        
                         <div className="field">
                             <label>Restaurant</label>
                             <div className="fields">
