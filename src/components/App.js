@@ -33,7 +33,7 @@ class App extends React.Component {
         allRestaurants.push(oneRestaurant.data)
         this.setState({
             allRestaurants
-        })
+        })``
     }
     render() {
         let username; 
@@ -41,7 +41,8 @@ class App extends React.Component {
         username = this.state.user.username
     }
     return(
-           
+    
+        <div className="home-page-body">    
             <div className='ui container'>
                 <BrowserRouter>
                     <div>
@@ -61,6 +62,7 @@ class App extends React.Component {
                 </BrowserRouter> 
             </div>
        
+         </div>   
     )
 }
 };
