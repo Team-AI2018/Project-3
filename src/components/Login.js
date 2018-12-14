@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
 import UserService from '../service/UserService';
-import {Link} from 'react-router-dom'
 
 class Login extends Component {
   state = { usernameInput: '', passwordInput: '' };
@@ -10,6 +8,7 @@ class Login extends Component {
 
 handleChange = (e) =>{
     this.setState({[e.target.name]: e.target.value})
+
 }
 
 
@@ -18,21 +17,18 @@ handleFormSubmit = (e) =>{
     this.userService.login(this.state.usernameInput, this.state.passwordInput)
     .then((userFromDB)=>{
         this.setState({usernameInput: '', passwordInput: ''})
-        console.log(userFromDB)
         this.props.logTheUserIntoAppComponent(userFromDB)
-
-
+        this.props.history.push('/');
     })
+    
     .catch((err)=>{
-        console.log('sorry something went wrong', err)
 
     })
-
 }
 
 render(){
   return(
-    <div>
+    <div className="log-in">
         <form className="ui form" onSubmit={this.handleFormSubmit}>
         <div className="field">
           <label>Username</label>
@@ -46,7 +42,8 @@ render(){
 
         <div class="ui form success">
        
-        <button className="ui button" type="submit">Login</button>
+        <button class="positive ui button">Login</button>
+
         </div>
 
       </form>

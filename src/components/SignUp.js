@@ -1,8 +1,6 @@
 
 import React from 'react';
-import Axios from 'axios';
 import UserService from '../service/UserService';
-import {Link} from 'react-router-dom'
 
 
 
@@ -36,10 +34,7 @@ class SignUp extends React.Component {
                 lastNameInput: '',
                 emailInput: '',
             })
-
-            this.props.history.push('/project-index');
-
-
+            this.props.history.push('/');
         })
         .catch((err)=>{
             console.log('sorry something went wrong', err)
@@ -52,45 +47,45 @@ class SignUp extends React.Component {
     return(
         <div className="sign-up">
 
-        <div class="ui attached message">
-            <div class="header">
+        <div className="ui attached message ">
+            <div className="header">
             Welcome to Yeeeelp!
             </div>
             <p>Fill out the form below to sign-up for a new account</p>
         </div>
-        <form class="ui form attached fluid segment" onSubmit={this.handleFormSubmit}>
-            <div class="two fields">
-            <div class="field">
+        <form className="ui form attached fluid segment" onSubmit={this.handleFormSubmit}>
+            <div className="two fields">
+            <div className="field">
                 <label>First Name</label>
                 <input placeholder="First Name" type="text" name="firstNameInput" value={this.state.firstNameInput} onChange={e => this.handleChange(e)}/>
             </div>
-            <div class="field">
+            <div className="field">
                 <label>Last Name</label>
                 <input placeholder="Last Name" type="text" name="lastNameInput" value={this.state.lastNameInput} onChange={ e => this.handleChange(e)}/>
             </div>
             </div>
-            <div class="field">
+            <div className="field">
             <label>Username</label>
             <input type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
             </div>
-                <div class="field">
+                <div className="field">
                 <label>Password</label>
                 <input type="password" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)}/>
             </div>
-            <div class="field">
+            <div className="field">
              <label>E-mail</label>
              <input type="email" placeholder="joe@schmoe.com" name="emailInput" value={this.state.valueInput} onChange={e => this.handleChange(e)}/>
             </div>
-            <div class="inline field">
-                <div class="ui checkbox">
+            <div className="inline field">
+                <div className="ui checkbox">
                     <input type="checkbox" id="terms"/>
                     <label for="terms">I agree to the terms and conditions</label>
                 </div>
             </div>
-            <input type="submit" class="ui blue submit button" value="submit"/>
+            <input type="submit" className="ui green submit button" value="submit"/>
         </form>
-            <div class="ui bottom attached warning message">
-            <i class="icon help"></i>
+            <div className="ui bottom attached warning message">
+            <i className="icon help"></i>
             Already signed up? <a href="#">Login here</a> instead.
         </div>
     </div>
