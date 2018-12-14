@@ -30,4 +30,10 @@ body{
     width:60%;
 }
 
+.pen-pic{
+    width: 30px;
+  }
 
+  .nav-bar a{
+      color:green;
+  }
