@@ -34,11 +34,10 @@ class AddNewProject extends Component {
          rating: rating, review: review, owner : owner},
          {withCredentials: true})
          .then((responeFromOurAPI)=>{
-            console.log('history before', this.props.history)
+             this.props.history.push('/profile')
             this.props.addAllRestaurants(responeFromOurAPI);
             this.props.history.push('/restaurants');
             this.props.history.push('/profile')
-            console.log('history after', this.props.history)
          })
          .catch((err)=>{
             console.log('error creating task', err)

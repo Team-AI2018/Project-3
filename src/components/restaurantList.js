@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 class RestaurantIndex extends Component {
     state = {
         allTheRestaurants: [],
-        myRestaurants: []
-        
     }
     componentWillMount() {
         this.fetchRestaurants()
@@ -18,7 +16,7 @@ class RestaurantIndex extends Component {
     fetchRestaurants = () => {
         Axios.get('http://localhost:5000/api/restaurants')
             .then((responseFromApi) => {
-                 console.log(responseFromApi.data)
+                //  console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data
                     })

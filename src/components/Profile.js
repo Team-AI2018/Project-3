@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 class Profile extends Component {
     state = {
         allTheRestaurants: [],
-        myRestaurants: []
-        
     }
     componentWillMount() {
         this.fetchRestaurants()
@@ -27,7 +25,6 @@ class Profile extends Component {
     }
     showAllRestaurants = () => {
         if (this.state.allTheRestaurants && this.props.currentUser) {
-            // console.log('there is a restaurant and a current user')
             const theRestaurants = this.state.allTheRestaurants.filter((eachRestaurant) => {
                 return eachRestaurant.owner === this.props.currentUser._id
             })

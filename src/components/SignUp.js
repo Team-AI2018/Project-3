@@ -34,7 +34,7 @@ class SignUp extends React.Component {
                 lastNameInput: '',
                 emailInput: '',
             })
-            this.props.history.push('/');
+            this.props.history.push('/profile');
         })
         .catch((err)=>{
             console.log('sorry something went wrong', err)
