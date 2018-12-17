@@ -16,7 +16,7 @@ handleFormSubmit = (e) =>{
     .then((userFromDB)=>{
         this.setState({usernameInput: '', passwordInput: ''})
         this.props.logTheUserIntoAppComponent(userFromDB)
-        this.props.history.push('/');
+        this.props.history.push('/profile');
     })
     
     .catch((err)=>{
@@ -60,31 +60,5 @@ render(){
   )
 }
 }
-
-
-
-// const Login = () => {
-//     return(
-        
-      //   <form className="ui form" onSubmit={this.handleFormSubmit}>
-      //   <div className="field">
-      //     <label>Username</label>
-      //     <input type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
-      //   </div>
-      //   <div className="field"> 
-      //     <label>Password</label>
-      //     <input type="password" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)}/>
-      //   </div>
-       
-
-      //   <div class="ui form success">
-       
-      //   <button className="ui button" type="submit">Login</button>
-      //   </div>
-
-      // </form>
-      
-//     )
-// };
 
 export default Login;
