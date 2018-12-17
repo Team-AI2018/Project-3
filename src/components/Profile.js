@@ -6,7 +6,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-class RestaurantIndex extends Component {
+class Profile extends Component {
     state = {
         allTheRestaurants: [],
         myRestaurants: []
@@ -52,8 +52,9 @@ class RestaurantIndex extends Component {
             <div className="list-of-restaurants-container">
             {this.showAllRestaurants()}
             </div>
+            <Link to="/add">New Restaurant</Link>
             </div>
         )
     }
 }
-export default RestaurantIndex;
+export default Profile;

@@ -26,10 +26,10 @@ class RestaurantIndex extends Component {
             .catch((err) => {})
     }
     showAllRestaurants = () => {
-        if (this.state.allTheRestaurants && this.props.currentUser) {
+        if (this.state.allTheRestaurants) {
             // console.log('there is a restaurant and a current user')
             const theRestaurants = this.state.allTheRestaurants.filter((eachRestaurant) => {
-                return eachRestaurant.owner === this.props.currentUser._id
+                return eachRestaurant.owner
             })
             return theRestaurants.map((eachRestaurant) => {
                 return ( 
