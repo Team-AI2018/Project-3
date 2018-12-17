@@ -1,6 +1,4 @@
 body{
-    /* background-image: linear-gradient(to right,#1488CC , #2B32B2); */
-    
 }
 
 .sign-up{
@@ -17,7 +15,7 @@ body{
     font-size: 20px;
     border-radius: 5px;
     margin-bottom:  50px;
-    background-color: #16ab39;
+    flex-wrap: wrap;
 }
 
 .add-new{
@@ -48,5 +46,72 @@ body{
   }
 
   .nav-bar a{
-      color:green;
+      color:white;
   }
+
+  .nav-bar a:hover{
+    border:1px solid white;
+    padding: 7px;
+    color: white;
+  }
+
+  .cover-page{
+      background-image: url('/adult-asian-food-celebration-1310777.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height:100vh;
+      width:100vw !important;
+
+  }
+
+  .search-bar{
+      height:45px;
+      width:70%;
+      border:1px solid white;
+      border-radius: 10px;
+      font-size: 1.5em;
+      letter-spacing: 1.5px;
+      margin-right:5px;
+
+  }
+
+  .fa-search-location{
+      color:white;
+      font-size: 2.5em;
+  }
+
+  .search-bar-box{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      height:70vh;
+      margin: 15vh auto;
+  }
+
+  .four-columns{
+    display:flex;
+    justify-content: space-evenly;
+    margin:50px 0;
+    box-sizing: border-box;
+}
+  
+.column-box{
+    padding:20px;
+    /* border: 1px solid black; */
+    
+}
+
+.column-box > img{
+    margin:25px 0;
+}
+
+.container > h1{
+    color: black;
+    text-align: center;
+    font-size: 2.5em;
+
+}
+
+.slider-box{
+    position: relative
+}

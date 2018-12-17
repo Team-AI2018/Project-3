@@ -13,6 +13,7 @@ import Nav from './Nav';
 import AddNewRes from './AddNewRes';
 import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
+import Slider from './Slider';
 
 
 class App extends React.Component {
@@ -37,6 +38,7 @@ class App extends React.Component {
             allRestaurants
         })``
     }
+
     render() {
         let username; 
     if(this.state.user){
@@ -45,29 +47,36 @@ class App extends React.Component {
     return(
     
         <div className="home-page-body">    
-            <div className='ui container'>
+            <div className="cover-page">
+
                 <BrowserRouter>
                     <div>
                         {username}
                         <Nav logOut={this.logOut} user={this.state.user}/>
                         <Switch>
                             <Route path="/" component={Home} exact />
+                         <div className='ui container '>
+   
                             <Route path="/login" render={(props) => <Login {...props }logTheUserIntoAppComponent={this.logTheUserIntoAppComponent} />}/>                            
                             <Route path="/signup" render={(props) => <SignUp {...props}logTheUserIntoAppComponent={this.logTheUserIntoAppComponent}/>} />
                             <Route path="/restaurants" render={(props) => <RestaurantList {...props} currentUser={this.state.user} /> } />
-                            <Route path="/details/:id" component = {SingleRestaurant} /> } 
-
+                            <Route path="/details/:id" component = {SingleRestaurant} /> 
+                            {/* <Route component={Error} /> */}
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
                             {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 
-                            <Route component={Error} />
-
+                        </div>
                         </Switch>
                     </div>
                     
                 </BrowserRouter> 
+                
+            
             </div>
-       
+
+
+            
+            {/* <Slider/> */}
          </div>   
     )
 }
