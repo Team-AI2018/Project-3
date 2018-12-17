@@ -13,7 +13,8 @@ import Nav from './Nav';
 import AddNewRes from './AddNewRes';
 import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
-import Slider from './Slider';
+import Profile from './Profile';
+
 
 
 class App extends React.Component {
@@ -60,8 +61,11 @@ class App extends React.Component {
                             <Route path="/login" render={(props) => <Login {...props }logTheUserIntoAppComponent={this.logTheUserIntoAppComponent} />}/>                            
                             <Route path="/signup" render={(props) => <SignUp {...props}logTheUserIntoAppComponent={this.logTheUserIntoAppComponent}/>} />
                             <Route path="/restaurants" render={(props) => <RestaurantList {...props} currentUser={this.state.user} /> } />
-                            <Route path="/details/:id" component = {SingleRestaurant} /> 
-                            {/* <Route component={Error} /> */}
+
+                            <Route path="/profile" render={(props) => <Profile {...props} currentUser={this.state.user} /> } />
+                            <Route path="/details/:id" render={(props) => <SingleRestaurant {...props} currentUser={this.state.user} /> } />
+
+
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
                             {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 

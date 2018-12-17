@@ -6,7 +6,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-class RestaurantIndex extends Component {
+class Profile extends Component {
     state = {
         allTheRestaurants: [],
     }
@@ -16,7 +16,7 @@ class RestaurantIndex extends Component {
     fetchRestaurants = () => {
         Axios.get('http://localhost:5000/api/restaurants')
             .then((responseFromApi) => {
-                //  console.log(responseFromApi.data)
+                 console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data
                     })
@@ -24,10 +24,9 @@ class RestaurantIndex extends Component {
             .catch((err) => {})
     }
     showAllRestaurants = () => {
-        if (this.state.allTheRestaurants) {
-            // console.log('there is a restaurant and a current user')
+        if (this.state.allTheRestaurants && this.props.currentUser) {
             const theRestaurants = this.state.allTheRestaurants.filter((eachRestaurant) => {
-                return eachRestaurant.owner
+                return eachRestaurant.owner === this.props.currentUser._id
             })
             return theRestaurants.map((eachRestaurant) => {
                 return ( 
@@ -50,8 +49,9 @@ class RestaurantIndex extends Component {
             <div className="list-of-restaurants-container">
             {this.showAllRestaurants()}
             </div>
+            <Link to="/add">New Restaurant</Link>
             </div>
         )
     }
 }
-export default RestaurantIndex;
+export default Profile;

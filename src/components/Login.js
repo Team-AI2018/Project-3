@@ -8,9 +8,7 @@ class Login extends Component {
 
 handleChange = (e) =>{
     this.setState({[e.target.name]: e.target.value})
-
 }
-
 
 handleFormSubmit = (e) =>{
     e.preventDefault();
@@ -18,7 +16,7 @@ handleFormSubmit = (e) =>{
     .then((userFromDB)=>{
         this.setState({usernameInput: '', passwordInput: ''})
         this.props.logTheUserIntoAppComponent(userFromDB)
-        this.props.history.push('/');
+        this.props.history.push('/profile');
     })
     
     .catch((err)=>{
@@ -62,9 +60,5 @@ render(){
   )
 }
 }
-
-
-
-
 
 export default Login;
