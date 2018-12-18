@@ -1,5 +1,5 @@
-ul{
-    position:absolute;
+.slider ul{
+    position:relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -9,7 +9,7 @@ ul{
     padding: 0;
 }
 
-ul li{
+.slider ul li{
     list-style-type: none;
     position: relative;
     width: 20%;
@@ -22,21 +22,41 @@ ul li{
     overflow: hidden;
 
 }
-ul li:nth-child(1){
-    /* background-image: url('/brown.jpg'); */
+.slider ul li:nth-child(1){
+    background-image: url('/architecture-buildings-chairs-984888.jpg');
+    background-size: cover;
+    background-position: left;
+}
+.slider ul li:nth-child(2){
+    background-image: url('/appetizers-chef-cooking-1267320.jpg');
+    background-size: cover;
+    background-position: left;
+}
+.slider ul li:nth-child(3){
+    background-image: url('/pexels-photo-1268551.jpeg');
+    background-size: cover;
+    background-position: left;
+}
+.slider ul li:nth-child(4){
+    background-image: url('/almonds-berries-blackberries-1099680.jpg');
+    background-size: cover;
+    background-position: left;
+}
+.slider ul li:nth-child(5){
+    background-image: url('/chair-cutlery-diner-941861.jpg');
     background-size: cover;
     background-position: left;
 }
 
-ul:hover li{
+.slider ul:hover li{
     width:10%;
 }
 
-ul li:hover{
+.slider ul li:hover{
     width:60%;
 }
 
-ul li .content{
+.slider ul li .content{
     position:absolute;
     bottom:-100%;
     left: 0;
@@ -47,13 +67,13 @@ ul li .content{
     opacity: 0;
 }
 
-ul li .content h2{
+.slider ul li .content h2{
     color:white;
 }
 
-ul li:hover .content{
+.slider ul li:hover .content{
     bottom:0;
     transition:0.5s;
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
     opacity: 1;
 }

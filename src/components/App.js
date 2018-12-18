@@ -13,7 +13,9 @@ import Nav from './Nav';
 import AddNewRes from './AddNewRes';
 import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
-import Slider from './Slider';
+import FlipCard from './FlipCard';
+import Footer from './Footer';
+
 
 
 class App extends React.Component {
@@ -63,7 +65,6 @@ class App extends React.Component {
                             <Route path="/details/:id" component = {SingleRestaurant} /> 
                             {/* <Route component={Error} /> */}
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
-                            {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 
                         </div>
                         </Switch>
@@ -73,10 +74,10 @@ class App extends React.Component {
                 
             
             </div>
-
-
-            
-            {/* <Slider/> */}
+            {/* <div className='ui container flip-card-box'>
+                 <FlipCard/>
+            </div> */}
+            {/* <Footer/> */}
          </div>   
     )
 }

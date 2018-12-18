@@ -113,5 +113,10 @@ body{
 }
 
 .slider-box{
-    position: relative
+    position: relative;
+}
+
+.flip-card-box{
+    position:relative;
+    height: 650px;
 }

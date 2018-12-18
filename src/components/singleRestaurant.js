@@ -20,11 +20,11 @@ class SingleRestaurant extends Component{
 
     componentWillMount(){
         const theID = this.props.match.params.id;
-        console.log(theID)
+        // console.log(theID)
         Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
         .then((response)=>{
 
-            console.log('------___---__-_-_--_-_-__-_-_-_-_-___-_-----',response)
+            // console.log('------___---__-_-_--_-_-__-_-_-_-_-___-_-----',response)
 
             this.setState({theRestaurant: response.data,
                 nameInput: response.data.name,
@@ -36,6 +36,7 @@ class SingleRestaurant extends Component{
                 review: response.data.review,
                 owner: response.data.owner
             })
+            
         }).catch(()=>{
         })
     }
@@ -59,8 +60,6 @@ class SingleRestaurant extends Component{
         })
         .then(()=>{
             this.setState({editing: false});
-            // after we submit the form and the Axios request is complete, we set this.state.editing
-            // back to false so that the form dissappears and looks all fancy
         })
         .catch(()=>{
         })
@@ -71,18 +70,11 @@ class SingleRestaurant extends Component{
     }
 
     showProjectDetails = () =>{
-        console.log(this)
+        // console.log(this)
        if(this.state.theRestaurant){
             if(this.state.editing){
-                // if this.state.editing is set to true, we will show a form
 
                 return(
-                    // <form onSubmit={this.editProject}>
-                    // <input className="input" value={this.state.nameInput} onChange={this.updateInput} id="nameInput"/>
-                    // <input className="input" value={this.state.descriptionInput} onChange={this.updateInput} id="descriptionInput"/>
-                    // <button>submit changes</button>
-                    // </form>
-
                  <form onSubmit={this.editProject}>
                     <div className="ui form">
                         <div className="field">
@@ -133,24 +125,31 @@ class SingleRestaurant extends Component{
                     </span>
 
                     <span>
-                    
                         {this.state.descriptionInput}
                     </span>
-                    {/* we put this little image of a pen here, and add an on click function */}
-                    {/* the on click function changes this.state.editing to true */}
-                    {/*  therefore, when we change this.state.editing to true, we show a form instead of just the info */}
-                    <img onClick={this.toggleForm} className="pen-pic" src="https://us.123rf.com/450wm/jemastock/jemastock1707/jemastock170717063/82921914-stock-vector-school-pen-write-supply-accessory-icon-vector-illustration.jpg?ver=6"/>
-                </div>
+                   
+                    { this.props.currentUser && this.props.currentUser._id === this.state.owner ? 
+                        <img onClick={this.toggleForm} className="pen-pic" src="https://us.123rf.com/450wm/jemastock/jemastock1707/jemastock170717063/82921914-stock-vector-school-pen-write-supply-accessory-icon-vector-illustration.jpg?ver=6"/>
+                        : ""
+                    }
+                    {/* <span>
+                        {this.state.owner}
+                    </span> */}
+
+
+                    </div>
             )
         }
         }
     }
 
     deleteProject = () =>{
-        Axios.post('http://localhost:5000/api/restaurants/delete/'+this.state.theRestaurant._id, {})
+        Axios.post('http://localhost:5000/api/restaurants/delete/'+this.state.theRestaurant._id, {owner: this.state.theRestaurant.owner}, {withCredentials: true})
         .then(()=>{
             
             this.props.history.push('/restaurants');
+
+            // this.props.history.push('/profile');
         })
         .catch(()=>{
 
@@ -158,15 +157,15 @@ class SingleRestaurant extends Component{
     }
 
     render(){
-        console.log(this.props)
-        console.log(this.state)
+        // console.log(this.props)
+        // console.log(this.state)
+
+        
         return(
             <div>
                 <h1> Project Details Page!</h1>
                 {this.showProjectDetails()}
 
-                <br />
-                <br />
                 <br />
                 <br />
             <div>

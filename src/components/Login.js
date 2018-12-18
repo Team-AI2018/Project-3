@@ -8,9 +8,7 @@ class Login extends Component {
 
 handleChange = (e) =>{
     this.setState({[e.target.name]: e.target.value})
-
 }
-
 
 handleFormSubmit = (e) =>{
     e.preventDefault();
@@ -18,7 +16,7 @@ handleFormSubmit = (e) =>{
     .then((userFromDB)=>{
         this.setState({usernameInput: '', passwordInput: ''})
         this.props.logTheUserIntoAppComponent(userFromDB)
-        this.props.history.push('/');
+        this.props.history.push('/profile');
     })
     
     .catch((err)=>{
@@ -45,7 +43,7 @@ render(){
     
         <div class="ui form success">
        
-        <button class="positive ui button">Login</button>
+        <button class="ui inverted green button">Login</button>
 
         </div>
 
@@ -53,18 +51,14 @@ render(){
 
       </div>
 
-      <img src="../brown.jpg"/>
-      <img src="tomato.jpeg"/>
-      <img src="food.jpeg"/>
-      <img src="food.jpeg"/>
+      {/* <img src="../brown.jpg"/> */}
+      {/* <img src="tomato.jpeg"/> */}
+      {/* <img src="food.jpeg"/>
+      <img src="food.jpeg"/> */}
 
 </div>
   )
 }
 }
-
-
-
-
 
 export default Login;
