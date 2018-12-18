@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./App.css";
 import Axios from 'axios';
 
@@ -24,7 +24,6 @@ class SingleRestaurant extends Component{
         Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
         .then((response)=>{
 
-            // console.log('------___---__-_-_--_-_-__-_-_-_-_-___-_-----',response)
 
             this.setState({theRestaurant: response.data,
                 nameInput: response.data.name,
