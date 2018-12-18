@@ -1,6 +1,4 @@
-import React, {
-    Component
-} from 'react';
+import React, { Component } from 'react';
 import "./App.css";
 import Axios from 'axios';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./App.css";
 import Axios from 'axios';
 
@@ -13,15 +13,14 @@ class Reviews extends Component{
     componentWillMount(){
         const theID = this.props.match.params.id;
         console.log(theID)
-        Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
+        Axios.get('http://localhost:5000/api/restaurants/'+theID+'/addReview')
         .then((response)=>{
 
-            this.setState({
+            this.setState({theReviews: response.data,
                 author: response.data.author,
                 review: response.data.review,
                 rating: response.data.rating,
             })
-            
         }).catch(()=>{
         })
     }
@@ -35,7 +34,7 @@ class Reviews extends Component{
     editProject = (e) => {
         e.preventDefault();
 
-        Axios.post('http://localhost:5000/api/restaurants/edit/'+this.state.theRestaurant._id, 
+        Axios.post('http://localhost:5000/api/restaurants/'+this.state.theReviews._id+'/edit', 
         {
             author: this.state.author,
             review: this.state.review,
@@ -101,10 +100,8 @@ class Reviews extends Component{
     }
 
     deleteProject = () =>{
-        Axios.post('http://localhost:5000/api/restaurants/delete/'+this.state.theRestaurant._id, {})
+        Axios.post('http://localhost:5000/api/restaurants/'+this.state.theReviews._id+'/delete', {})
         .then(()=>{
-            
-            this.props.history.push('/restaurants');
 
             // this.props.history.push('/profile');
         })
@@ -118,7 +115,7 @@ class Reviews extends Component{
         console.log(this.state)
         return(
             <div>
-                <h1> Project Details Page!</h1>
+                <h3> Reviews</h3>
                 {this.showProjectDetails()}
 
                 <br />
