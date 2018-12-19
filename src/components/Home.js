@@ -8,7 +8,7 @@ const Home = () => {
         <div>
         <div className="search-bar-box">
             <input className="search-bar" placeholder="Sushi, Burgers, Italian, American"/>
-            <a><i class="fas fa-search-location"></i></a>
+            <a><i className="fas fa-search-location"></i></a>
         </div>
         <div className='ui container'>
         <h1>Find the Best Restaurant in Town </h1>
