@@ -14,7 +14,7 @@ class RestaurantIndex extends Component {
     fetchRestaurants = () => {
         Axios.get('http://localhost:5000/api/restaurants')
             .then((responseFromApi) => {
-                //  console.log(responseFromApi.data)
+                 console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data
                     })
