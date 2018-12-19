@@ -12,11 +12,22 @@ handleChange = (e) =>{
 
 handleFormSubmit = (e) =>{
     e.preventDefault();
+
     this.userService.login(this.state.usernameInput, this.state.passwordInput)
     .then((userFromDB)=>{
+      console.log('jujujujujuujujuj',userFromDB)
         this.setState({usernameInput: '', passwordInput: ''})
         this.props.logTheUserIntoAppComponent(userFromDB)
-        this.props.history.push('/profile');
+        if(userFromDB.message !== "Incorrect username"){
+          console.log("the user is right ")
+          this.props.history.push('/profile');
+        }
+        else{
+          console.log("the user is wrong")
+        }
+         
+        
+        
     })
     
     .catch((err)=>{

@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./App.css";
 import Axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 class SingleRestaurant extends Component{
     state={
@@ -24,17 +24,16 @@ class SingleRestaurant extends Component{
         Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
         .then((response)=>{
 
-            // console.log('------___---__-_-_--_-_-__-_-_-_-_-___-_-----',response)
-
-            this.setState({theRestaurant: response.data,
-                nameInput: response.data.name,
-                descriptionInput: response.data.description,
-                locationInput: response.data.location,
-                foodType: response.data.foodType,
-                avgPrice: response.data.avgPrice,
-                rating: response.data.rating,
-                review: response.data.review,
-                owner: response.data.owner
+            console.log(response)
+            this.setState({theRestaurant: response.data.obj.theRestaurant,
+                nameInput: response.data.obj.theRestaurant.name,
+                descriptionInput: response.data.obj.theRestaurant.description,
+                locationInput: response.data.obj.theRestaurant.location,
+                foodType: response.data.obj.theRestaurant.foodType,
+                avgPrice: response.data.obj.theRestaurant.avgPrice,
+                rating: response.data.obj.theRestaurant.rating,
+                review: response.data.obj.theRestaurant.review,
+                owner: response.data.obj.theRestaurant.owner
             })
             
         }).catch(()=>{
@@ -135,7 +134,7 @@ class SingleRestaurant extends Component{
                     {/* <span>
                         {this.state.owner}
                     </span> */}
-
+                   
 
                     </div>
             )
@@ -155,10 +154,19 @@ class SingleRestaurant extends Component{
 
         })
     }
-
+    // fetchReviews = () => {
+    //     Axios.get('http://localhost:5000/api/restaurants/'+this.state.theRestaurant._id)
+    //         .then((responseFromApi) => {
+    //              console.log('-_--_-__-------------',responseFromApi.data)
+    //             this.setState({
+    //                 theRestaurants: responseFromApi.data.review
+    //                 })
+    //         })
+    //         .catch((err) => {})
+    // }
     render(){
-        // console.log(this.props)
-        // console.log(this.state)
+        //  console.log(this.props)
+        //  console.log(this.state)
 
         
         return(
@@ -168,10 +176,16 @@ class SingleRestaurant extends Component{
 
                 <br />
                 <br />
-            <div>
-                <button onClick={this.deleteProject} className="delete">Delete This Project</button>
-            </div>
+                <div>
+                    <button onClick={this.deleteProject} className="delete">Delete This Project</button>
                 </div>
+
+                <Link to={`/addReviews/${this.props.match.params.id}`}>Add Review</Link>
+
+                {this.fetchReviews()}
+
+
+            </div>
         )
     }
 }
