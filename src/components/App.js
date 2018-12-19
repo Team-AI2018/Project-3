@@ -14,7 +14,7 @@ import AddNewRes from './AddNewRes';
 import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
 import Profile from './Profile';
-
+import AddReview from './addReviews'
 
 
 class App extends React.Component {
@@ -65,8 +65,8 @@ class App extends React.Component {
                             <Route path="/profile" render={(props) => <Profile {...props} currentUser={this.state.user} /> } />
                             <Route path="/details/:id" render={(props) => <SingleRestaurant {...props} currentUser={this.state.user} /> } />
 
-
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
+                            <Route path="/addReviews/:id" render={(props) => <AddReview {...props } addAllRestaurants={this.addAllRestaurants} />} />
                             {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 
                         </div>
@@ -80,7 +80,6 @@ class App extends React.Component {
 
 
             
-            {/* <Slider/> */}
          </div>   
     )
 }
