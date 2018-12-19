@@ -18,14 +18,13 @@ class AddReview extends Component {
         const author = this.state.author;
         const review = this.state.review;
         const rating = this.state.rating;
-        Axios.post("http://localhost:5000/api/restaurants/addReview",
-         {author: author, review: review, rating: rating,},
+        Axios.post(`http://localhost:5000/api/restaurants/${this.props.match.params.id}/addReview`,
+         {author: author, review: review, rating: rating},
          {withCredentials: true})
          .then((responeFromOurAPI)=>{
-             this.props.history.push('/profile')
+             this.props.history.push(`/details/${this.props.match.params.id}`)
             this.props.addAllRestaurants(responeFromOurAPI);
-            this.props.history.push('/restaurants');
-            this.props.history.push('/profile')
+            //this.props.history.push('/details');
          })
          .catch((err)=>{
             console.log('error creating task', err)
@@ -45,7 +44,7 @@ class AddReview extends Component {
                         </div>
                         <div className="field">
                             <label>Reviews</label>
-                            <textarea rows="4" value={this.state.review} id="reviews" onChange={this.updateInput} placeholder="Describe the restaurant"></textarea>
+                            <textarea type="text" rows="4" value={this.state.review} id="review" onChange={this.updateInput} placeholder="What do you think of this place"></textarea>
                         </div>
                         <button className="positive ui button">Submit</button>
                     </div>
