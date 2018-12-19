@@ -17,6 +17,7 @@ body{
     border-radius: 5px;
     margin-bottom:  50px;
     flex-wrap: wrap;
+        background: rgba(0,0,0,1);
 }
 
 .add-new{
@@ -27,10 +28,11 @@ body{
 
 
 .log-in{
-    display:grid;
-    grid-template-columns: 30% 30% 30%;
+    color:white;
+    /* display:grid; */
+    /* grid-template-columns: 30% 30% 30%;
     grid-row-gap: 1em;
-    grid-column-gap: 1em;
+    grid-column-gap: 1em; */
 
 }
 
@@ -39,12 +41,15 @@ body{
     grid-row: 1/2;
 }
 
+
+
 .log-in img{
     border-radius: 5px;
 }
 .pen-pic{
     width: 30px;
   }
+
 
   .nav-bar a{
       color:white;
@@ -57,14 +62,30 @@ body{
   }
 
   .cover-page{
-      background-image: url('/adult-asian-food-celebration-1310777.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       height:100vh;
       width:100vw !important;
-
   }
-
+  .cover-page.show{
+    background-image: url('/pexels-photo-1002740.jpeg');
+}
+.cover-page.hidden{
+    background-image:none;
+}
+/*
+  #restaurants-list{
+    background-color:white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    width:100vw !important;   
+    position:fixed;
+    top: 0;
+    left:0;
+    z-index: 0;
+}
+*/
   .search-bar{
       height:45px;
       width:70%;
@@ -94,6 +115,7 @@ body{
     justify-content: space-evenly;
     margin:50px 0;
     box-sizing: border-box;
+    /* flex-wrap: wrap; */
 }
   
 .column-box{
@@ -114,5 +136,14 @@ body{
 }
 
 .slider-box{
-    position: relative
+    position: relative;
+}
+
+.flip-card-box{
+    position:relative;
+    height: 650px;
+}
+
+.ui.form .field>label{
+    color:white 
 }

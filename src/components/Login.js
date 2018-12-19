@@ -38,7 +38,6 @@ handleFormSubmit = (e) =>{
 render(){
   return(
     <div className="log-in">
-        <img className="toast-img" src="../brown.jpg"/>
 
         <div className="log-in-form">
 
@@ -54,7 +53,7 @@ render(){
     
         <div class="ui form success">
        
-        <button class="positive ui button">Login</button>
+        <button class="ui inverted green button">Login</button>
 
         </div>
 
@@ -62,10 +61,10 @@ render(){
 
       </div>
 
-      <img src="../brown.jpg"/>
-      <img src="tomato.jpeg"/>
-      <img src="food.jpeg"/>
-      <img src="food.jpeg"/>
+      {/* <img src="../brown.jpg"/> */}
+      {/* <img src="tomato.jpeg"/> */}
+      {/* <img src="food.jpeg"/>
+      <img src="food.jpeg"/> */}
 
 </div>
   )
