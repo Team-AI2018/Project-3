@@ -22,15 +22,8 @@ class Home extends React.Component{
 
     onFormSubmit= (event)=>{ 
         event.preventDefault(); 
-
-        console.log(this)
         this.props.history.push(`/restaurants?q=${this.state.searchterm}`)
-        /*const response = Axios.get('https://api.yelp.com/v3/restaurants',{ 
-         
-        params:{query: this.state.searchterm} 
-        });
-
-        this.setState({restaurants: response});*/
+  
     } 
    
 

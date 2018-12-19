@@ -4,7 +4,7 @@ import React, {
 import "./App.css";
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Yelp from './YelpList'
 
 class RestaurantIndex extends Component {
     state = {
@@ -13,8 +13,8 @@ class RestaurantIndex extends Component {
     componentWillMount() {
         this.fetchRestaurants()
     }
+
     fetchRestaurants = () => {
-        console.log(this)
         Axios.get(`http://localhost:5000/api/restaurants${this.props.location.search}`)
             .then((responseFromApi) => {
                   console.log(responseFromApi)
@@ -25,6 +25,12 @@ class RestaurantIndex extends Component {
             })
             .catch((err) => {})
     }
+
+    showYelpRestaurants = () => {
+        console.log(this.state.allTheRestaurants)
+    }
+
+
     showAllRestaurants = () => {
         if (this.state.allTheRestaurants) {
             // console.log('there is a restaurant and a current user')
@@ -49,9 +55,12 @@ class RestaurantIndex extends Component {
 
             <h1>Restaurant Index</h1>
 
-            <div className="list-of-restaurants-container">
+            {/* <div className="list-of-restaurants-container">
             {this.showAllRestaurants()}
-            </div>
+            </div> */}
+
+            <Yelp res={this.state.yelp}/>
+            
             </div>
         )
     }
