@@ -16,6 +16,7 @@ import SingleRestaurant from './singleRestaurant';
 import FlipCard from './FlipCard';
 import Footer from './Footer';
 import Profile from './Profile'
+import AddReview from './addReviews'
 
 class App extends React.Component {
     state = {
