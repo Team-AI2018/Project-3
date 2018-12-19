@@ -13,16 +13,23 @@ import Nav from './Nav';
 import AddNewRes from './AddNewRes';
 import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
-import Profile from './Profile';
-import AddReview from './addReviews'
-
+import FlipCard from './FlipCard';
+import Footer from './Footer';
+import Profile from './Profile'
 
 class App extends React.Component {
     state = {
         user: null,
         allRestaurants : [],
-        message: null
+        restaurantPage: false
     }
+
+    toggleRestaurantPage = () => {
+        this.setState({
+            restaurantPage: !this.state.restaurantPage
+        })
+    }
+
     logTheUserIntoAppComponent = (user) => {
         console.log("*******************", user)
         if(this.message !== "Missing credentials"){
@@ -58,7 +65,8 @@ class App extends React.Component {
     return(
     
         <div className="home-page-body">    
-            <div className="cover-page">
+            {/* <div className="cover-page"> */}
+            <div className={"cover-page " + (this.state.restaurantPage ? 'hidden' : 'show')}>
 
                 <BrowserRouter>
                     <div>
@@ -87,9 +95,10 @@ class App extends React.Component {
                 
             
             </div>
-
-
-            
+            {/* <div className='ui container flip-card-box'>
+                 <FlipCard/>
+            </div> */}
+            {/* <Footer/> */}
          </div>   
     )
 }
