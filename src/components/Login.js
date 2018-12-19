@@ -12,6 +12,7 @@ handleChange = (e) =>{
 
 handleFormSubmit = (e) =>{
     e.preventDefault();
+    console.log("--------------------", this.state)
     this.userService.login(this.state.usernameInput, this.state.passwordInput)
     .then((userFromDB)=>{
         this.setState({usernameInput: '', passwordInput: ''})

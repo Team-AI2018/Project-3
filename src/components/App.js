@@ -20,12 +20,20 @@ import AddReview from './addReviews'
 class App extends React.Component {
     state = {
         user: null,
-        allRestaurants : []
+        allRestaurants : [],
+        message: null
     }
     logTheUserIntoAppComponent = (user) => {
-        this.setState({
-            user
-        })   
+        console.log("*******************", user)
+        if(user.includes("_id")){
+            this.setState({
+                user
+            })   
+        } else {
+            this.setState({
+                message: user.message
+            })
+        }
     }
     logOut = () => {
         this.setState({
