@@ -8,6 +8,7 @@ import {NavLink} from 'react-router-dom';
 
 const Nav = (props) => {
     let user = props.user;
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$ ", props);
     return (
         <div className="nav-bar">
             
