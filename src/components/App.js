@@ -15,14 +15,21 @@ import RestaurantList from './restaurantList';
 import SingleRestaurant from './singleRestaurant';
 import FlipCard from './FlipCard';
 import Footer from './Footer';
-
-
+import Profile from './Profile'
 
 class App extends React.Component {
     state = {
         user: null,
-        allRestaurants : []
+        allRestaurants : [],
+        restaurantPage: false
     }
+
+    toggleRestaurantPage = () => {
+        this.setState({
+            restaurantPage: !this.state.restaurantPage
+        })
+    }
+
     logTheUserIntoAppComponent = (user) => {
         this.setState({
             user
@@ -49,7 +56,8 @@ class App extends React.Component {
     return(
     
         <div className="home-page-body">    
-            <div className="cover-page">
+            {/* <div className="cover-page"> */}
+            <div className={"cover-page " + (this.state.restaurantPage ? 'hidden' : 'show')}>
 
                 <BrowserRouter>
                     <div>
@@ -61,10 +69,11 @@ class App extends React.Component {
    
                             <Route path="/login" render={(props) => <Login {...props }logTheUserIntoAppComponent={this.logTheUserIntoAppComponent} />}/>                            
                             <Route path="/signup" render={(props) => <SignUp {...props}logTheUserIntoAppComponent={this.logTheUserIntoAppComponent}/>} />
-                            <Route path="/restaurants" render={(props) => <RestaurantList {...props} currentUser={this.state.user} /> } />
+                            <Route path="/restaurants" render={(props) => <RestaurantList {...props} toggleRestaurantPage={this.toggleRestaurantPage} currentUser={this.state.user} /> } />
                             <Route path="/details/:id" component = {SingleRestaurant} /> 
                             {/* <Route component={Error} /> */}
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
+                            <Route path="/profile" render={(props) => <Profile {...props} currentUser={this.state.user} /> } />
 
                         </div>
                         </Switch>

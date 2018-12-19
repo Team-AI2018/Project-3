@@ -74,6 +74,10 @@ class AddNewProject extends Component {
                         <input type="text" placeholder="Street Address" value={this.state.locationInput} onChange={this.updateInput} id="locationInput"/>
                         </div>
                         <div className="field">
+                        <label>Image URL</label>
+                        <input type="text" placeholder="Image" />
+                        </div>
+                        <div className="field">
                             <label>Description</label>
                             <textarea rows="4" value={this.state.descriptionInput} id="descriptionInput" onChange={this.updateInput} placeholder="Describe the restaurant"></textarea>
                         </div>

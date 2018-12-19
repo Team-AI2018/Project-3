@@ -1,0 +1,18 @@
+
+
+.yelp {
+   display:flex;
+    margin: 20px;
+    padding: 10px;
+    border:1px solid lightgrey;
+
+}
+
+.yelp img{
+    height: 250px;
+    border-radius: 10px;
+}
+
+.yelp .content{
+    margin-left: 30px;
+}

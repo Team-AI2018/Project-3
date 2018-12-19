@@ -27,7 +27,6 @@ handleFormSubmit = (e) =>{
 render(){
   return(
     <div className="log-in">
-        <img className="toast-img" src="../brown.jpg"/>
 
         <div className="log-in-form">
 
