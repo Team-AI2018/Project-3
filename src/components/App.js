@@ -25,14 +25,16 @@ class App extends React.Component {
     }
     logTheUserIntoAppComponent = (user) => {
         console.log("*******************", user)
-        if(user.includes("_id")){
+        if(this.message !== "Missing credentials"){
             this.setState({
-                user
+                user: user
             })   
         } else {
             this.setState({
-                message: user.message
+                message: user
             })
+            
+            console.log( '_-__--------', this.state.user,)
         }
     }
     logOut = () => {

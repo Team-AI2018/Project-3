@@ -134,9 +134,7 @@ class SingleRestaurant extends Component{
                     {/* <span>
                         {this.state.owner}
                     </span> */}
-                    <span>
-                    Reviews: {this.state.review}
-                    </span>
+                   
 
                     </div>
             )
@@ -156,10 +154,19 @@ class SingleRestaurant extends Component{
 
         })
     }
-
+    // fetchReviews = () => {
+    //     Axios.get('http://localhost:5000/api/restaurants/'+this.state.theRestaurant._id)
+    //         .then((responseFromApi) => {
+    //              console.log('-_--_-__-------------',responseFromApi.data)
+    //             this.setState({
+    //                 theRestaurants: responseFromApi.data.review
+    //                 })
+    //         })
+    //         .catch((err) => {})
+    // }
     render(){
-         console.log(this.props)
-         console.log(this.state)
+        //  console.log(this.props)
+        //  console.log(this.state)
 
         
         return(
@@ -174,6 +181,8 @@ class SingleRestaurant extends Component{
                 </div>
 
                 <Link to={`/addReviews/${this.props.match.params.id}`}>Add Review</Link>
+
+                {this.fetchReviews()}
 
 
             </div>
