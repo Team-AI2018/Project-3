@@ -12,44 +12,32 @@ class RestaurantIndex extends Component {
         this.fetchRestaurants()
         this.props.toggleRestaurantPage()
     }
-    componentWillUnmount() {
-        this.props.toggleRestaurantPage()
-    }
 
     fetchRestaurants = () => {
-        Axios.get(`http://localhost:5000/api/restaurants${this.props.location.search}`)
+        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
             .then((responseFromApi) => {
-                 console.log(responseFromApi.data)
+                console.log(responseFromApi)
                 this.setState({
-                    allTheRestaurants: responseFromApi.data.obj.allTheRestaurants,
-                    yelp:responseFromApi.data.obj.yelp
+                    allTheRestaurants: responseFromApi.data,
+                    //yelp:responseFromApi.data.obj.yelp
                 })
             })
             .catch((err) => {})
     }
 
     showYelpRestaurants = () => {
-        console.log(this.state.allTheRestaurants)
+        // console.log(this.state.allTheRestaurants)
     }
 
 
     showAllRestaurants = () => {
         if (this.state.allTheRestaurants) {
-            // console.log('there is a restaurant and a current user')
-            const theRestaurants = this.state.allTheRestaurants.filter((eachRestaurant) => {
-                return eachRestaurant.owner
-            })
-            return theRestaurants.map((eachRestaurant) => {
+            return this.state.allTheRestaurants.map((eachRestaurant) => {
                 return ( 
-                // <div key={eachRestaurant._id}>
-                //     <h3>{eachRestaurant.name}</h3>
-                //     <h6>{eachRestaurant.description}</h6>
-                //     <Link to={'/details/'+ eachRestaurant._id} >See Details</Link>
-                // </div>
 
                 <div className="yelp">
                                 
-                <a href='#'><img src={eachRestaurant.img}/></a>
+                <div href='#'><img src={eachRestaurant.img}/></div>
                 <div className='content'>
                     <h2>{eachRestaurant.name}</h2>
                     <p>{eachRestaurant.avgPrice}</p>
@@ -64,6 +52,7 @@ class RestaurantIndex extends Component {
         }
     }
     render() {
+        console.log(this.state.allTheRestaurants)
         return (  
             
             <div id="restaurants-list">
@@ -74,7 +63,7 @@ class RestaurantIndex extends Component {
 
             </div>
 
-            <Yelp res={this.state.yelp}/>
+            {/* <Yelp res={this.state.yelp}/> */}
             
             </div>
         )

@@ -18,7 +18,7 @@ class AddReview extends Component {
         const author = this.state.author;
         const review = this.state.review;
         const rating = this.state.rating;
-        Axios.post(`http://localhost:5000/api/restaurants/${this.props.match.params.id}/addReview`,
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/${this.props.match.params.id}/addReview`,
          {author: author, review: review, rating: rating},
          {withCredentials: true})
          .then((responeFromOurAPI)=>{

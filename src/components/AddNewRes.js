@@ -29,7 +29,7 @@ class AddNewProject extends Component {
         const rating = this.state.rating;
         const review = this.state.review;
         const owner = this.state.owner;
-        Axios.post("http://localhost:5000/api/restaurants/add-new",
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/add-new`,
          {name: newName, description: newDescription, location: newLocation, foodType: newfoodType, avgPrice: avgPrice,
          rating: rating, review: review, owner : owner},
          {withCredentials: true})

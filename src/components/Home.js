@@ -6,7 +6,6 @@ import './App.css';
 
 import FlipCard from './FlipCard';
 import Footer from './Footer';
-import Video from './Video';
 
 
 
@@ -64,9 +63,6 @@ class Home extends React.Component{
                 <div className="flip-card-box">
                 <FlipCard/>
                 </div> 
-                {/* <div>
-                    <Video/>
-                </div>  */}
                 <div className="vd-section">
                     <Footer/>
                 </div>

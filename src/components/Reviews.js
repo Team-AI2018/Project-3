@@ -6,14 +6,19 @@ import Axios from 'axios';
 class Reviews extends Component{
     state={
         author: null,
-        review: '',
+        review: 'hello',
         rating: null,
     }
 
     componentWillMount(){
-        const theID = this.props.match.params.id;
-        console.log(theID)
-        Axios.get('http://localhost:5000/api/restaurants/'+theID+'/addReview')
+        console.log("$$$$$$$$$$$$", this.props)
+        var theID;
+
+       
+            theID = this.props.match.params.id;
+        
+        console.log("*********************", theID)
+        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants/`+theID+'/addReview')
         .then((response)=>{
 
             this.setState({theReviews: response.data,
@@ -31,17 +36,20 @@ class Reviews extends Component{
         })
     }
 
-    editProject = (e) => {
+    editReviews = (e) => {
         e.preventDefault();
 
-        Axios.post('http://localhost:5000/api/restaurants/'+this.state.theReviews._id+'/edit', 
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/`+this.state.theReviews._id+'/edit', 
         {
             author: this.state.author,
             review: this.state.review,
             rating: this.state.rating,
         })
-        .then(()=>{
+        .then((responeFromOurAPI)=>{
+            console.log("the response when editing a review >>>>>>>>>>>>>>>>>>> ", responeFromOurAPI)
             this.setState({editing: false});
+            this.props.addAllRestaurants(responeFromOurAPI);
+
         })
         .catch(()=>{
         })
@@ -51,12 +59,13 @@ class Reviews extends Component{
         this.setState({editing: true})
     }
 
-    showProjectDetails = () =>{
-        console.log(this)
+    showReviewsDetails = () =>{
+        console.log("================", this)
        if(this.state.theRestaurant){
             if(this.state.editing){
                 return(
                  <form onSubmit={this.editProject}>
+                 <h2> bleh bleh bleh bleh bleh bleh</h2>
                     <div className="ui form">
                         <div className="fields">
                         <div className="three wide field">
@@ -75,35 +84,28 @@ class Reviews extends Component{
 
             return(
                 <div>
-                    <span>
-                    {this.state.nameInput}
-                    </span>
+                    <h2>blah blah blah blah blah</h2>
 
-                    <span>
-                        {this.state.descriptionInput}
-                    </span>
+                <h2>{this.state.author}</h2>
+                <li>
+                    {this.state.review}
+                </li>
+                
                    
                     {
                     <img onClick={this.toggleForm} className="pen-pic" src="https://us.123rf.com/450wm/jemastock/jemastock1707/jemastock170717063/82921914-stock-vector-school-pen-write-supply-accessory-icon-vector-illustration.jpg?ver=6"/>
                     }
-                        <br></br>
-                        <br></br>
-                    {/* <span>
-                        {this.state.owner}
-                    </span> */}
-
-
-                    </div>
+                </div>
             )
         }
         }
     }
 
     deleteProject = () =>{
-        Axios.post('http://localhost:5000/api/restaurants/'+this.state.theReviews._id+'/delete', {})
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/`+this.state.theReviews._id+'/delete', {})
         .then(()=>{
 
-            // this.props.history.push('/profile');
+            this.props.history.push('/profile');
         })
         .catch(()=>{
 
@@ -115,15 +117,16 @@ class Reviews extends Component{
         console.log(this.state)
         return(
             <div>
-                <h3> Reviews</h3>
+                <h1>WTFWTFWTFWTFWTFWTFWTFWTF</h1>
+                {/* <h3> Reviews</h3>
                 {this.showProjectDetails()}
 
                 <br />
                 <br />
             <div>
                 <button onClick={this.deleteProject} className="delete">Delete This Project</button>
-            </div>
-
+            </div> */}
+            {this.showReviewsDetails}
             </div>
         )
     }

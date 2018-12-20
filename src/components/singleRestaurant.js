@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import "./App.css";
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import Reviews from './Reviews'
+
 
 class SingleRestaurant extends Component{
     state={
@@ -23,7 +25,7 @@ class SingleRestaurant extends Component{
     componentWillMount(){
         const theID = this.props.match.params.id;
         // console.log(theID)
-        Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
+        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants/details/`+theID)
         .then((response)=>{
 
             // console.log('--------------------------------', response.data.reviews)
@@ -43,8 +45,6 @@ class SingleRestaurant extends Component{
         }).catch((err)=>{
             console.log(err)
         })
-        // this.fetchReviews()
-        // console.log('-----------------------------',this.state.review)
     }
 
     updateInput = (e) => {
@@ -56,13 +56,14 @@ class SingleRestaurant extends Component{
     editProject = (e) => {
         e.preventDefault();
 
-        Axios.post('http://localhost:5000/api/restaurants/edit/'+this.state.theRestaurant._id, 
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/edit/`+this.state.theRestaurant._id, 
         {
             name: this.state.nameInput, 
             description: this.state.descriptionInput, 
             location: this.state.locationInput, 
             foodType: this.state.foodType, 
             avgPrice: this.state.avgPrice,
+            img: this.state.img
         })
         .then(()=>{
             this.setState({editing: false});
@@ -123,15 +124,16 @@ class SingleRestaurant extends Component{
                     <h1>
                     {this.state.nameInput}
                     </h1>
+                    <img src={this.state.img}/>
 
                     <h5>
                         {this.state.descriptionInput}
                     </h5>
                     <h5>
-                       {this.state.foodType}
+                       Food Type: {this.state.foodType}
                    </h5>
                    <h5>
-                       {this.state.avgPrice}
+                       Average Price: {this.state.avgPrice}
                    </h5>
                     {this.props.currentUser && this.props.currentUser._id === this.state.owner ? 
                         <img onClick={this.toggleForm} className="pen-pic" src="https://us.123rf.com/450wm/jemastock/jemastock1707/jemastock170717063/82921914-stock-vector-school-pen-write-supply-accessory-icon-vector-illustration.jpg?ver=6"/>
@@ -145,12 +147,11 @@ class SingleRestaurant extends Component{
     }
 
     deleteProject = () =>{
-        Axios.post('http://localhost:5000/api/restaurants/delete/'+this.state.theRestaurant._id, {owner: this.state.theRestaurant.owner}, {withCredentials: true})
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/delete/`+this.state.theRestaurant._id, {owner: this.state.theRestaurant.owner}, {withCredentials: true})
         .then(()=>{
             
             this.props.history.push('/restaurants');
 
-            // this.props.history.push('/profile');
         })
         .catch(()=>{
 
@@ -166,20 +167,19 @@ class SingleRestaurant extends Component{
 
                 <h1>{eachReview.author}</h1>
                 <li key={i}>
-                    
                     {eachReview.review}
                 </li>
+                <li key={i}>
+                Rating: {eachReview.rating}
+                </li>
+                <Link to={`/edit/${this.props.match.params.id}`}>Edit Review</Link>
                 </div>
             )
                 
             })
-        
+         
     }
-
-
-    // showReviews = ()=> {
-    //     console.log("-------------------------------", this.state.review)
-    // }
+// <Reviews id={eachReview._id} click={() => this.showReviewsDetails()}>Click Me</Reviews>
     render(){
         //  console.log(this.props)
         //  console.log(this.state)
@@ -187,8 +187,7 @@ class SingleRestaurant extends Component{
 
         return(
             <div>
-            {/* {this.showReviews()} */}
-                <h1> Project Details Page!</h1>
+                
                 {this.showProjectDetails()}
 
                 <br />
@@ -199,6 +198,9 @@ class SingleRestaurant extends Component{
 
                 <Link to={`/addReviews/${this.props.match.params.id}`}>Add Review</Link>
 
+
+                <h1>Reviews</h1>
+                <br />
                 {this.showReviews()}
 
 
