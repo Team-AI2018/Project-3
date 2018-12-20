@@ -15,11 +15,9 @@ handleFormSubmit = (e) =>{
 
     this.userService.login(this.state.usernameInput, this.state.passwordInput)
     .then((userFromDB)=>{
-      console.log('jujujujujuujujuj',userFromDB)
         this.setState({usernameInput: '', passwordInput: ''})
         this.props.logTheUserIntoAppComponent(userFromDB)
         if(userFromDB.message !== "Incorrect username"){
-          console.log("the user is right ")
           this.props.history.push('/profile');
         }
         else{

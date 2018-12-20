@@ -16,10 +16,11 @@ class RestaurantIndex extends Component {
     fetchRestaurants = () => {
         Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
             .then((responseFromApi) => {
-                console.log(responseFromApi.data.obj.allTheRestaurants)
+
                 this.setState({
-                    allTheRestaurants: responseFromApi.data.obj.allTheRestaurants,
-                    yelp:responseFromApi.data.obj.yelp
+                    allTheRestaurants: responseFromApi.data,
+                    // yelp:responseFromApi.data.obj.yelp
+
                 })
             })
             .catch((err) => {})
@@ -53,7 +54,7 @@ class RestaurantIndex extends Component {
         }
     }
     render() {
-        console.log(this.state.allTheRestaurants)
+
         return (  
             
             <div id="restaurants-list">
