@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/Slider.css'
+import Faker from 'faker';
 
 class Slider extends React.Component{
 
@@ -9,32 +10,32 @@ class Slider extends React.Component{
                 <ul>
                     <li>
                         <div className="content">
-                        <h2>What is lorem ipsum?</h2>
-                        <p>he href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble </p>
+                        <h2>{Faker.lorem.sentence()}</h2>
+                        <p>{Faker.lorem.paragraph()}</p>
                         </div>
                     </li>
                     <li>
                         <div className="content">
-                        <h2>What is lorem ipsum?</h2>
-                        <p>he href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble </p>
+                        <h2>{Faker.lorem.sentence()}</h2>
+                        <p>{Faker.lorem.paragraph()}</p>
                         </div>
                     </li>
                     <li>
                         <div className="content">
-                        <h2>What is lorem ipsum?</h2>
-                        <p>he href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble </p>
+                        <h2>{Faker.lorem.sentence()}</h2>
+                        <p>{Faker.lorem.paragraph()}</p>
                         </div>
                     </li>
                     <li>
                         <div className="content">
-                        <h2>What is lorem ipsum?</h2>
-                        <p>he href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble </p>
+                        <h2>{Faker.lorem.sentence()}</h2>
+                        <p>{Faker.lorem.paragraph()}</p>
                         </div>
                     </li>
                     <li>
                         <div className="content">
-                        <h2>What is lorem ipsum?</h2>
-                        <p>he href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble </p>
+                        <h2>{Faker.lorem.sentence()}</h2>
+                        <p>{Faker.lorem.paragraph()}</p>
                         </div>
                     </li>
 

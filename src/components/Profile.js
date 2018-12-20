@@ -16,7 +16,7 @@ class Profile extends Component {
     fetchRestaurants = () => {
         Axios.get('http://localhost:5000/api/restaurants')
             .then((responseFromApi) => {
-
+                 console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data
                     })
@@ -52,6 +52,6 @@ class Profile extends Component {
             <Link to="/add">New Restaurant</Link>
             </div>
         )
-    }
+    } 
 }
 export default Profile;

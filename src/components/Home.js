@@ -7,8 +7,8 @@ import './App.css';
 import FlipCard from './FlipCard';
 import Footer from './Footer';
 import Video from './Video';
-
-
+import People from './people';
+import Faker from 'faker';
 
 
 
@@ -41,20 +41,20 @@ class Home extends React.Component{
                 <h1>Find the Best Restaurant in Town </h1>
                     <div className="four-columns">
                         <div className="column-box">
-                            <p>The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to</p>
+                            <p>fuga ad magnam quas. Dolorum nostrum assumenda aut. Cumque dolor commodi aut. Repudiandae quis qui quisquam nisi. Cupiditate veniam eum dolorem tenetur sunt.</p>
+                            <img src="/pexels-photo-1546039.jpeg"/>
+                        </div>
+                        <div  className="column-box">
+                            <p>fuga ad magnam quas. Dolorum nostrum assumenda aut. Cumque dolor commodi aut. Repudiandae quis qui quisquam nisi. Cupiditate veniam eum dolorem tenetur sunt.</p>
                             <img src="/pexels-photo-588776.jpeg"/>
                         </div>
                         <div  className="column-box">
-                            <p>The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to</p>
-                            <img src="/pexels-photo-588776.jpeg"/>
+                            <p>fuga ad magnam quas. Dolorum nostrum assumenda aut. Cumque dolor commodi aut. Repudiandae quis qui quisquam nisi. Cupiditate veniam eum dolorem tenetur sunt.</p>
+                            <img src="/pexels-photo-1528013.jpeg"/>
                         </div>
                         <div  className="column-box">
-                            <p>The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to</p>
-                            <img src="/pexels-photo-588776.jpeg"/>
-                        </div>
-                        <div  className="column-box">
-                            <p>The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to</p>
-                            <img src="/pexels-photo-588776.jpeg"/>
+                            <p> uga ad magnam quas. Dolorum nostrum assumenda aut. Cumque dolor commodi aut. Repudiandae quis qui quisquam nisi. Cupiditate veniam eum dolorem tenetur sunt.</p>
+                            <img src="/pexels-photo-315755.jpeg"/>
                         </div>
                     </div>
             </div>
@@ -67,6 +67,9 @@ class Home extends React.Component{
                 {/* <div>
                     <Video/>
                 </div>  */}
+                <div>
+                    <People/>
+                </div>
                 <div className="vd-section">
                     <Footer/>
                 </div>

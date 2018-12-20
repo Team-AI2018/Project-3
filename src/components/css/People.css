@@ -1,0 +1,15 @@
+.people-box{
+    display:flex;
+    background-color: black;
+    justify-content: space-around;
+    padding:20px;
+}
+
+.people-box img{
+   height: 300px;
+   border-radius: 50%;
+}
+
+.people-box div{
+    border-radius: 50%;
+}

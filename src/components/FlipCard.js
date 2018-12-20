@@ -9,7 +9,7 @@ class FlipCard extends React.Component{
            <div className="flip-card-box">
             <div className="card ">
                 <div className="front">
-                    <img src="/pexels-photo-588776.jpeg"></img>
+                    <img src="/pexels-photo-1437566.jpeg"></img>
                 </div>
             `   
                 <div className="back">
@@ -29,7 +29,7 @@ class FlipCard extends React.Component{
 
             <div className="card ">
                 <div className="front">
-                    <img src="/pexels-photo-588776.jpeg"></img>
+                    <img src="/food-salad-dinner-eating.jpg"></img>
                 </div>
             `   
                 <div className="back">
@@ -49,7 +49,7 @@ class FlipCard extends React.Component{
 
             <div className="card ">
                 <div className="front">
-                    <img src="/pexels-photo-588776.jpeg"></img>
+                    <img src="/pexels-photo-541216.jpeg"></img>
                 </div>
             `   
                 <div className="back">
