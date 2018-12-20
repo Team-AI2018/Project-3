@@ -18,17 +18,17 @@ class SingleRestaurant extends Component{
         img: '',
         owner: null,
         editing: false,
-        theActualProject: true
+        theRestaurant: true
         
     }
 
     componentWillMount(){
         const theID = this.props.match.params.id;
-        // console.log(theID)
+
         Axios.get(`${process.env.REACT_APP_API_URL}/restaurants/details/`+theID)
         .then((response)=>{
 
-            // console.log('--------------------------------', response.data.reviews)
+
             this.setState({theRestaurant: response.data,
                 nameInput: response.data.theRestaurant.name,
                 descriptionInput: response.data.theRestaurant.description,
@@ -77,7 +77,7 @@ class SingleRestaurant extends Component{
     }
 
     showProjectDetails = () =>{
-        // console.log(this.state.theRestaurant)
+
        if(this.state.theRestaurant){
             if(this.state.editing){
                 return(
@@ -147,20 +147,21 @@ class SingleRestaurant extends Component{
     }
 
     deleteProject = () =>{
-        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/delete/`+this.state.theRestaurant._id, {owner: this.state.theRestaurant.owner}, {withCredentials: true})
+        // router.post('/restaurants/delete/:id', (req, res, next) => {
+        Axios.post(`${process.env.REACT_APP_API_URL}/restaurants/delete/`+ this.props.match.params.id, {owner: this.state.theRestaurant.owner}, {withCredentials: true})
         .then(()=>{
             
             this.props.history.push('/restaurants');
 
         })
-        .catch(()=>{
-
+        .catch((err)=>{
+            console.log('--------------------', err)
         })
     }
     
 
     showReviews = ()=> {
-        console.log(this.state)
+
         return this.state.review.map((eachReview, i)=>{
             return(
                 <div>
@@ -181,9 +182,9 @@ class SingleRestaurant extends Component{
     }
 // <Reviews id={eachReview._id} click={() => this.showReviewsDetails()}>Click Me</Reviews>
     render(){
-        //  console.log(this.props)
-        //  console.log(this.state)
-        console.log('-----------------------', this.state.review)
+        console.log('this is the owner',this.state.owner)
+        console.log('this is the current user',this.props.currentUser)
+
 
         return(
             <div>
