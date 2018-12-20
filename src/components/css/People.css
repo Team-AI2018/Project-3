@@ -1,0 +1,17 @@
+.people-box{
+    display:flex;
+    justify-content: space-evenly;
+    padding:20px;
+    background-color: aliceblue;
+    margin-bottom: 80px;
+}
+
+.people-box img{
+   height: 300px;
+   border-radius: 50%;
+}
+
+.people-box div{
+    width: 33%;
+    text-align: center;
+}

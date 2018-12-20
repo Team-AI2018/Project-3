@@ -1,0 +1,29 @@
+.symbol-box{
+    display: flex;
+    justify-content:center;
+    margin-bottom: 80px;
+}
+
+.symbol-box div{
+    width: 22%;
+    border: 1px solid black;
+    padding: 20px;
+    margin:10px;
+    background-color: #E6EFF3;
+}
+
+.symbol-box i {
+    display:block;
+    font-size:80px;
+    color: black;
+    text-align: center;
+    margin-bottom:30px;
+
+}
+
+.symbol-box img {
+    display:block;
+    color: black;
+    margin: 0 auto;
+
+}
