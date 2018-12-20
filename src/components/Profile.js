@@ -14,7 +14,7 @@ class Profile extends Component {
         this.fetchRestaurants()
     }
     fetchRestaurants = () => {
-        Axios.get('http://localhost:5000/api/restaurants')
+        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
             .then((responseFromApi) => {
 
                 this.setState({
