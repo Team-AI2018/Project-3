@@ -1,8 +1,9 @@
 .people-box{
     display:flex;
-    background-color: black;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding:20px;
+    background-color: aliceblue;
+    margin-bottom: 80px;
 }
 
 .people-box img{
@@ -11,5 +12,6 @@
 }
 
 .people-box div{
-    border-radius: 50%;
+    width: 33%;
+    text-align: center;
 }

@@ -9,7 +9,7 @@ import Footer from './Footer';
 import Video from './Video';
 import People from './people';
 import Faker from 'faker';
-
+import Symbol from './Symbol'
 
 
 
@@ -38,7 +38,7 @@ class Home extends React.Component{
                 </div>
                 </form>
                 <div className='ui container'>
-                <h1>Find the Best Restaurant in Town </h1>
+                <h1>Find the Best Restaurants in Town </h1>
                     <div className="four-columns">
                         <div className="column-box">
                             <p>fuga ad magnam quas. Dolorum nostrum assumenda aut. Cumque dolor commodi aut. Repudiandae quis qui quisquam nisi. Cupiditate veniam eum dolorem tenetur sunt.</p>
@@ -64,11 +64,12 @@ class Home extends React.Component{
                 <div className="flip-card-box">
                 <FlipCard/>
                 </div> 
-                {/* <div>
-                    <Video/>
-                </div>  */}
+        
                 <div>
                     <People/>
+                </div>
+                <div>
+                    <Symbol/>
                 </div>
                 <div className="vd-section">
                     <Footer/>

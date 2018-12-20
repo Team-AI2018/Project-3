@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/FlipCard.css'
-
+import Faker from 'faker';
 class FlipCard extends React.Component{
 
     render(){
@@ -14,14 +14,12 @@ class FlipCard extends React.Component{
             `   
                 <div className="back">
                     <div className="back-content middle">
-                        <h2>Dark Code</h2>
-                        <span>Youtube Channel</span>
+                        <img src={Faker.image.food()}></img>
+                        <h2>{}</h2>
                         <div className="sm">
                             <a href="#"><i class="fab fa-apple"></i></a>
                             <a href="#"><i class="fab fa-apple"></i></a>
-                            <a href="#"><i class="fab fa-apple"></i></a>
-                            <a href="#"><i class="fab fa-apple"></i></a>
-                            <a href="#"><i class="fab fa-apple"></i></a>
+                      
                         </div>
                     </div>
                 </div>
@@ -34,7 +32,7 @@ class FlipCard extends React.Component{
             `   
                 <div className="back">
                     <div className="back-content middle">
-                        <h2>Dark Code</h2>
+                        <img src={Faker.image.nightlife()}></img>
                         <span>Youtube Channel</span>
                         <div className="sm">
                             <a href="#"><i class="fab fa-apple"></i></a>
@@ -54,7 +52,7 @@ class FlipCard extends React.Component{
             `   
                 <div className="back">
                     <div className="back-content middle">
-                        <h2>Dark Code</h2>
+                        <img src={Faker.image.business()}></img>
                         <span>Youtube Channel</span>
                         <div className="sm">
                             <a href="#"><i class="fab fa-apple"></i></a>

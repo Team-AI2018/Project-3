@@ -19,7 +19,7 @@ class RestaurantIndex extends Component {
     fetchRestaurants = () => {
         Axios.get(`http://localhost:5000/api/restaurants${this.props.location.search}`)
             .then((responseFromApi) => {
-                  console.log(responseFromApi)
+                 console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data.obj.allTheRestaurants,
                     yelp:responseFromApi.data.obj.yelp

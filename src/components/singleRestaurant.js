@@ -12,6 +12,8 @@ class SingleRestaurant extends Component{
         avgPrice: null,
         rating: null,
         review: [],
+        phone: '',
+        img: '',
         owner: null,
         editing: false,
         theActualProject: true
@@ -24,20 +26,25 @@ class SingleRestaurant extends Component{
         Axios.get('http://localhost:5000/api/restaurants/details/'+theID)
         .then((response)=>{
 
-            console.log(response)
-            this.setState({theRestaurant: response.data.obj.theRestaurant,
-                nameInput: response.data.obj.theRestaurant.name,
-                descriptionInput: response.data.obj.theRestaurant.description,
-                locationInput: response.data.obj.theRestaurant.location,
-                foodType: response.data.obj.theRestaurant.foodType,
-                avgPrice: response.data.obj.theRestaurant.avgPrice,
-                rating: response.data.obj.theRestaurant.rating,
-                review: response.data.obj.theRestaurant.review,
-                owner: response.data.obj.theRestaurant.owner
+            // console.log('--------------------------------', response.data.reviews)
+            this.setState({theRestaurant: response.data,
+                nameInput: response.data.theRestaurant.name,
+                descriptionInput: response.data.theRestaurant.description,
+                locationInput: response.data.theRestaurant.location,
+                foodType: response.data.theRestaurant.foodType,
+                avgPrice: response.data.theRestaurant.avgPrice,
+                phone: response.data.theRestaurant.phone,
+                img: response.data.theRestaurant.img,
+                rating: response.data.theRestaurant.rating,
+                review: response.data.reviews,
+                owner: response.data.theRestaurant.owner
             })
             
-        }).catch(()=>{
+        }).catch((err)=>{
+            console.log(err)
         })
+        // this.fetchReviews()
+        // console.log('-----------------------------',this.state.review)
     }
 
     updateInput = (e) => {
@@ -69,10 +76,9 @@ class SingleRestaurant extends Component{
     }
 
     showProjectDetails = () =>{
-        // console.log(this)
+        // console.log(this.state.theRestaurant)
        if(this.state.theRestaurant){
             if(this.state.editing){
-
                 return(
                  <form onSubmit={this.editProject}>
                     <div className="ui form">
@@ -110,31 +116,27 @@ class SingleRestaurant extends Component{
                         <button className="positive ui button">Submit</button>
                     </div>
                 </form>
-
-
-
             )
-
         }  else{
-
             return(
                 <div>
-                    <span>
+                    <h1>
                     {this.state.nameInput}
-                    </span>
+                    </h1>
 
-                    <span>
+                    <h5>
                         {this.state.descriptionInput}
-                    </span>
-                   
-                    { this.props.currentUser && this.props.currentUser._id === this.state.owner ? 
+                    </h5>
+                    <h5>
+                       {this.state.foodType}
+                   </h5>
+                   <h5>
+                       {this.state.avgPrice}
+                   </h5>
+                    {this.props.currentUser && this.props.currentUser._id === this.state.owner ? 
                         <img onClick={this.toggleForm} className="pen-pic" src="https://us.123rf.com/450wm/jemastock/jemastock1707/jemastock170717063/82921914-stock-vector-school-pen-write-supply-accessory-icon-vector-illustration.jpg?ver=6"/>
                         : ""
                     }
-                    {/* <span>
-                        {this.state.owner}
-                    </span> */}
-                   
 
                     </div>
             )
@@ -154,23 +156,38 @@ class SingleRestaurant extends Component{
 
         })
     }
-    // fetchReviews = () => {
-    //     Axios.get('http://localhost:5000/api/restaurants/'+this.state.theRestaurant._id)
-    //         .then((responseFromApi) => {
-    //              console.log('-_--_-__-------------',responseFromApi.data)
-    //             this.setState({
-    //                 theRestaurants: responseFromApi.data.review
-    //                 })
-    //         })
-    //         .catch((err) => {})
+    
+
+    showReviews = ()=> {
+        console.log(this.state)
+        return this.state.review.map((eachReview, i)=>{
+            return(
+                <div>
+
+                <h1>{eachReview.author}</h1>
+                <li key={i}>
+                    
+                    {eachReview.review}
+                </li>
+                </div>
+            )
+                
+            })
+        
+    }
+
+
+    // showReviews = ()=> {
+    //     console.log("-------------------------------", this.state.review)
     // }
     render(){
         //  console.log(this.props)
         //  console.log(this.state)
+        console.log('-----------------------', this.state.review)
 
-        
         return(
             <div>
+            {/* {this.showReviews()} */}
                 <h1> Project Details Page!</h1>
                 {this.showProjectDetails()}
 
@@ -182,7 +199,7 @@ class SingleRestaurant extends Component{
 
                 <Link to={`/addReviews/${this.props.match.params.id}`}>Add Review</Link>
 
-                {this.fetchReviews()}
+                {this.showReviews()}
 
 
             </div>
