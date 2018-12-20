@@ -17,6 +17,7 @@ import FlipCard from './FlipCard';
 import Footer from './Footer';
 import Profile from './Profile'
 import AddReview from './addReviews'
+import Reviews from './Reviews'
 
 class App extends React.Component {
     state = {
@@ -85,7 +86,8 @@ class App extends React.Component {
                             <Route path="/details/:id" render={(props) => <SingleRestaurant {...props} currentUser={this.state.user} /> } />
 
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
-                            {/* <Route path="/addReviews/:id" render={(props) => <AddReview {...props } addAllRestaurants={this.addAllRestaurants} />} /> */}
+                            <Route path="/addReviews/:id" render={(props) => <AddReview {...props } addAllRestaurants={this.addAllRestaurants} />} />
+                            <Route path="/edit/:id" render={(props) => <Reviews {...props } addAllRestaurants={this.showReviewsDetails} />} />
                             {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 
                         </div>

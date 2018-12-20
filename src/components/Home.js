@@ -6,7 +6,6 @@ import './App.css';
 
 import FlipCard from './FlipCard';
 import Footer from './Footer';
-import Video from './Video';
 import People from './people';
 import Faker from 'faker';
 import Symbol from './Symbol'

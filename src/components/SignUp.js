@@ -1,7 +1,7 @@
 
 import React from 'react';
 import UserService from '../service/UserService';
-
+import { Link } from 'react-router-dom';
 
 
 class SignUp extends React.Component {
@@ -66,11 +66,11 @@ class SignUp extends React.Component {
             </div>
             <div className="field">
             <label>Username</label>
-            <input type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
+            <input placeholder="Username" type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
             </div>
                 <div className="field">
                 <label>Password</label>
-                <input type="password" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)}/>
+                <input placeholder="Password" type="password" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)}/>
             </div>
             <div className="field">
              <label>E-mail</label>
@@ -86,7 +86,7 @@ class SignUp extends React.Component {
         </form>
             <div className="ui bottom attached warning message">
             <i className="icon help"></i>
-            Already signed up? <a href="#">Login here</a> instead.
+            Already signed up? <Link to="/login">Login here</Link> instead.
         </div>
     </div>
     )
