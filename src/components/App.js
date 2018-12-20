@@ -98,10 +98,7 @@ class App extends React.Component {
                 
             
             </div>
-            {/* <div className='ui container flip-card-box'>
-                 <FlipCard/>
-            </div> */}
-            {/* <Footer/> */}
+  
          </div>   
     )
 }

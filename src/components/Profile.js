@@ -4,8 +4,8 @@ import React, {
 import "./App.css";
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
-
+import Faker from 'faker';
+import './css/Profile.css';
 class Profile extends Component {
     state = {
         allTheRestaurants: [],
@@ -16,7 +16,7 @@ class Profile extends Component {
     fetchRestaurants = () => {
         Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
             .then((responseFromApi) => {
-
+                 console.log(responseFromApi.data)
                 this.setState({
                     allTheRestaurants: responseFromApi.data
                     })
@@ -42,16 +42,21 @@ class Profile extends Component {
     render() {
         return (  
             
-            <div>
+            <div className='profile-box'>
 
-            <h1>Restaurant Index</h1>
-
+            <h1>Profile Page</h1>
+            {/* <img src={Faker.image.avatar()}></img>
+            <h2>{Faker.name.firstName()} {Faker.name.lastName()}</h2>
+            <h2>{Faker.name.jobTitle()}</h2>
+            <h2>{Faker.internet.email()}</h2>
+            <h2>{Faker.phone.phoneNumberFormat()}</h2>
+            <p>{Faker.name.jobDescriptor()}</p> */}
             <div className="list-of-restaurants-container">
-            {this.showAllRestaurants()}
+                {this.showAllRestaurants()}
             </div>
             <Link to="/add">New Restaurant</Link>
             </div>
         )
-    }
+    } 
 }
 export default Profile;
