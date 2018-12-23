@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 
     logTheUserIntoAppComponent = (user) => {
-        console.log("*******************", user)
+        // console.log("*******************", user)
         if(this.message !== "Missing credentials"){
             this.setState({
                 user: user
@@ -43,7 +43,7 @@ class App extends React.Component {
                 message: user
             })
             
-            console.log( '_-__--------', this.state.user,)
+            // console.log( '_-__--------', this.state.user,)
         }
     }
     logOut = () => {
@@ -72,7 +72,6 @@ class App extends React.Component {
 
                 <BrowserRouter>
                     <div>
-                        {username}
                         <Nav logOut={this.logOut} user={this.state.user}/>
                         <Switch>
                             <Route path="/" component={Home} exact />
@@ -87,7 +86,7 @@ class App extends React.Component {
 
                             <Route path="/add" render={(props) => <AddNewRes {...props } addAllRestaurants={this.addAllRestaurants} />} />
                             <Route path="/addReviews/:id" render={(props) => <AddReview {...props } addAllRestaurants={this.addAllRestaurants} />} />
-                            <Route path="/edit/:id" render={(props) => <Reviews {...props } addAllRestaurants={this.showReviewsDetails} />} />
+                            <Route path="/edit/:id" render={(props) => <Reviews {...props } addAllRestaurants={this.addAllRestaurants} />} />
                             {/* <Route path="/project-index" render={(props) => <ProjectIndex {...props} currentUser={this.state.loggedInUser} /> } /> */}
 
                         </div>

@@ -27,7 +27,7 @@ class AddReview extends Component {
             //this.props.history.push('/details');
          })
          .catch((err)=>{
-            console.log('error creating task', err)
+            // console.log('error creating task', err)
          })
     }
 

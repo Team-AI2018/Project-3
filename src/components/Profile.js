@@ -16,9 +16,9 @@ class Profile extends Component {
     fetchRestaurants = () => {
         Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
             .then((responseFromApi) => {
-                 console.log(responseFromApi.data)
+                //  console.log(responseFromApi.data)
                 this.setState({
-                    allTheRestaurants: responseFromApi.data
+                    allTheRestaurants: responseFromApi.data.obj.allTheRestaurants
                     })
             })
             .catch((err) => {})

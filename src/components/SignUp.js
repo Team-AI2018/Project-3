@@ -25,7 +25,7 @@ class SignUp extends React.Component {
         e.preventDefault();
         this.service.signup(this.state.usernameInput, this.state.passwordInput, this.state.firstNameInput, this.state.lastNameInput, this.state.emailInput)
         .then((userFromDB)=>{
-            console.log('------------------------', userFromDB)
+            // console.log('------------------------', userFromDB)
             this.props.logTheUserIntoAppComponent(userFromDB)
             this.setState({
                 usernameInput: '',
@@ -37,7 +37,7 @@ class SignUp extends React.Component {
             this.props.history.push('/profile');
         })
         .catch((err)=>{
-            console.log('sorry something went wrong', err)
+            // console.log('sorry something went wrong', err)
 
         })
 

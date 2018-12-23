@@ -11,13 +11,13 @@ class Reviews extends Component{
     }
 
     componentWillMount(){
-        console.log("$$$$$$$$$$$$", this.props)
+        // console.log("$$$$$$$$$$$$", this.props)
         var theID;
 
        
             theID = this.props.match.params.id;
         
-        console.log("*********************", theID)
+        // console.log("*********************", theID)
         Axios.get(`${process.env.REACT_APP_API_URL}/restaurants/`+theID+'/addReview')
         .then((response)=>{
 
@@ -46,7 +46,7 @@ class Reviews extends Component{
             rating: this.state.rating,
         })
         .then((responeFromOurAPI)=>{
-            console.log("the response when editing a review >>>>>>>>>>>>>>>>>>> ", responeFromOurAPI)
+            // console.log("the response when editing a review >>>>>>>>>>>>>>>>>>> ", responeFromOurAPI)
             this.setState({editing: false});
             this.props.addAllRestaurants(responeFromOurAPI);
 
@@ -60,7 +60,7 @@ class Reviews extends Component{
     }
 
     showReviewsDetails = () =>{
-        console.log("================", this)
+        // console.log("================", this)
        if(this.state.theRestaurant){
             if(this.state.editing){
                 return(
@@ -113,8 +113,8 @@ class Reviews extends Component{
     }
 
     render(){
-        console.log(this.props)
-        console.log(this.state)
+        // console.log(this.props)
+        // console.log(this.state)
         return(
             <div>
                 <h1>WTFWTFWTFWTFWTFWTFWTFWTF</h1>
@@ -126,7 +126,7 @@ class Reviews extends Component{
             <div>
                 <button onClick={this.deleteProject} className="delete">Delete This Project</button>
             </div> */}
-            {this.showReviewsDetails}
+            {this.showReviewsDetails()}
             </div>
         )
     }
