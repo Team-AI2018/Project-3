@@ -72,7 +72,17 @@ class RestaurantIndex extends Component {
             </div>
 
             <Yelp res={this.state.yelp}/>
+            <div id="restaurants-list">
+
+
+            <div className="list-of-restaurants-container">
+            {this.showAllRestaurants()}
+
+            </div>
+
+            <Yelp res={this.state.yelp}/>
             
+            </div>
             </div>
         )
     }
