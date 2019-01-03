@@ -3,7 +3,7 @@ import './css/Yelp.css'
 
 const Yelp = (props) => {
 
-    console.log(props)
+    // console.log(props)
     let Restaurants = 'No businesses available' 
     if(props.res){ //make sure it's not undefined 
         Restaurants = props.res.businesses.map(business => {

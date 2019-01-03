@@ -21,7 +21,7 @@ handleFormSubmit = (e) =>{
           this.props.history.push('/profile');
         }
         else{
-          console.log("the user is wrong")
+          // console.log("the user is wrong")
         }
          
         

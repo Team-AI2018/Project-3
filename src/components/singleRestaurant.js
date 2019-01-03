@@ -43,7 +43,7 @@ class SingleRestaurant extends Component{
             })
             
         }).catch((err)=>{
-            console.log(err)
+            // console.log(err)
         })
     }
 
@@ -155,7 +155,7 @@ class SingleRestaurant extends Component{
 
         })
         .catch((err)=>{
-            console.log('--------------------', err)
+            // console.log('--------------------', err)
         })
     }
     
@@ -173,7 +173,7 @@ class SingleRestaurant extends Component{
                 <li key={i}>
                 Rating: {eachReview.rating}
                 </li>
-                <Link to={`/edit/${this.props.match.params.id}`}>Edit Review</Link>
+                {/* <Link to={`/edit/${this.props.match.params.id}`}>Edit Review</Link> */}
                 </div>
             )
                 
@@ -182,8 +182,6 @@ class SingleRestaurant extends Component{
     }
 // <Reviews id={eachReview._id} click={() => this.showReviewsDetails()}>Click Me</Reviews>
     render(){
-        console.log('this is the owner',this.state.owner)
-        console.log('this is the current user',this.props.currentUser)
 
 
         return(

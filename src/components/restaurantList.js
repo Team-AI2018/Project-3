@@ -12,14 +12,17 @@ class RestaurantIndex extends Component {
         this.fetchRestaurants()
         this.props.toggleRestaurantPage()
     }
+    componentWillUnmount() {
+        this.props.toggleRestaurantPage()
+    }
 
     fetchRestaurants = () => {
-        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants`)
+        Axios.get(`${process.env.REACT_APP_API_URL}/restaurants${this.props.location.search}`)
             .then((responseFromApi) => {
 
                 this.setState({
-                    allTheRestaurants: responseFromApi.data,
-                    // yelp:responseFromApi.data.obj.yelp
+                    allTheRestaurants: responseFromApi.data.obj.allTheRestaurants,
+                    yelp:responseFromApi.data.obj.yelp
 
                 })
             })
@@ -32,14 +35,17 @@ class RestaurantIndex extends Component {
 
 
     showAllRestaurants = () => {
-        console.log(this.state)
         if (this.state.allTheRestaurants) {
-            return this.state.allTheRestaurants.map((eachRestaurant) => {
+            console.log('there is a restaurant and a current user', this)
+            const theRestaurants = this.state.allTheRestaurants.filter((eachRestaurant) => {
+                return eachRestaurant.owner
+            })
+            return theRestaurants.map((eachRestaurant) => {
                 return ( 
-
+               
                 <div className="yelp">
                                 
-                <div href='#'><img src={eachRestaurant.img}/></div>
+                <a href='#'><img src={eachRestaurant.img}/></a>
                 <div className='content'>
                     <h2>{eachRestaurant.name}</h2>
                     <p>{eachRestaurant.avgPrice}</p>
@@ -65,8 +71,7 @@ class RestaurantIndex extends Component {
 
             </div>
 
-            {/* <Yelp res={this.state.yelp}/> */}
-            
+            <Yelp res={this.state.yelp}/>
             </div>
         )
     }

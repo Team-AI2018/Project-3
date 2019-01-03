@@ -40,7 +40,7 @@ class AddNewProject extends Component {
             this.props.history.push('/profile')
          })
          .catch((err)=>{
-            console.log('error creating task', err)
+            // console.log('error creating task', err)
          })
     }
 
@@ -66,7 +66,7 @@ class AddNewProject extends Component {
                         <input type="number" placeholder="Avg Price" value={this.state.avgPrice} id="avgPrice" onChange={this.updateInput}/>
                         </div>
                         <div className="three wide field">
-                        <input type="number" placeholder="Rating" value={this.state.rating} id="foodType" onChange={this.updateInput}/>
+                        <input type="number" placeholder="Rating" value={this.state.rating} id="rating" onChange={this.updateInput}/>
                         </div>
                         </div>
                         <div className="field">
